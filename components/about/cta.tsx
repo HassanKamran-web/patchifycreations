@@ -9,7 +9,7 @@ export default function AboutCta() {
     <section id="about-cta" className="scroll-mt-24 bg-surface-tint py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-accent px-6 py-16 text-center shadow-card-lg sm:px-12 sm:py-20">
+          <div className="relative overflow-hidden rounded-4xl bg-accent px-6 py-16 text-center shadow-card-lg sm:px-12 sm:py-20">
             <div
               className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
               aria-hidden="true"
@@ -27,7 +27,7 @@ export default function AboutCta() {
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
                 Talk to a production manager today and get a free, stitch-ready mockup
-                within 24 hours — no commitment, no design fees, no minimums.
+                within 3–4 hours — no commitment, no design fees, just a 15-piece minimum.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link

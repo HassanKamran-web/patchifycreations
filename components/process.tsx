@@ -14,7 +14,7 @@ const STEPS = [
     step: "02",
     title: "Get a free digital proof",
     description:
-      "A specialist digitizes your design into stitch-ready artwork and sends a free mockup within 24 hours.",
+      "A specialist digitizes your design into stitch-ready artwork and sends a free mockup within 3–4 hours.",
   },
   {
     step: "03",

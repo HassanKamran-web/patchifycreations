@@ -1,4 +1,5 @@
 import Hero from "@/components/hero";
+import RecentDelivered from "@/components/recent-delivered";
 import Categories from "@/components/categories";
 import Features from "@/components/features";
 import Showcase from "@/components/showcase";
@@ -12,6 +13,7 @@ export default function Home() {
       <Categories />
       <Features />
       <Showcase />
+      <RecentDelivered />
       <Process />
       <Cta />
     </main>

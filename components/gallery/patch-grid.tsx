@@ -13,10 +13,9 @@ gsap.registerPlugin(ScrollTrigger);
 type PatchGridProps = {
   category: "All" | PatchCategory;
   patches: Patch[];
-  onSelect: (patch: Patch) => void;
 };
 
-export default function PatchGrid({ category, patches, onSelect }: PatchGridProps) {
+export default function PatchGrid({ category, patches }: PatchGridProps) {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -59,7 +58,7 @@ export default function PatchGrid({ category, patches, onSelect }: PatchGridProp
       >
         <div ref={gridRef} className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {patches.map((patch) => (
-            <PatchCard key={patch.id} patch={patch} onSelect={onSelect} />
+            <PatchCard key={patch.id} patch={patch} />
           ))}
         </div>
       </motion.div>

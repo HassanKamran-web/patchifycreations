@@ -16,17 +16,17 @@ const REASONS = [
   {
     icon: BrushIcon,
     title: "Free design proofs",
-    text: "Stitch-ready mockups within 24 hours — always free, never an obligation, even for a single patch.",
+    text: "Stitch-ready mockups within 3–4 hours — always free, never an obligation.",
   },
   {
     icon: LayersIcon,
-    title: "No minimum orders",
-    text: "Order one sample or 100,000 units. Our tooling scales with you, and unit pricing improves as you grow.",
+    title: "15-piece minimum",
+    text: "Orders start at 25 pieces and scale up to 100,000. Unit pricing improves as you grow.",
   },
   {
     icon: TruckIcon,
     title: "Fast turnaround",
-    text: "Standard production in 8–12 days with express lanes available when deadlines are tight.",
+    text: "Standard production in 7 business days with express lanes available when deadlines are tight.",
   },
   {
     icon: ShieldIcon,

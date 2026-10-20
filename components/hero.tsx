@@ -1,11 +1,13 @@
 "use client";
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRightIcon, SparkIcon, StarIcon } from "./icons";
+import { ArrowRightIcon, SparkIcon } from "./icons";
 import { prefersReducedMotion } from "./smooth-scroll";
+import PatchSlider from "./patch-slider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +15,7 @@ const HEADLINE = ["Custom patches,", "crafted to your", "exact design."];
 
 const MARQUEE_ITEMS = [
   "Apparel brands",
-  "Military & tactical",
+  "Chenille patches",
   "Sports teams",
   "Motorcycle clubs",
   "Corporate swag",
@@ -49,8 +51,6 @@ function Float({
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const decorRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (prefersReducedMotion()) return;
@@ -73,37 +73,6 @@ export default function Hero() {
         { opacity: 0, y: 24 },
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power3.out", delay: 0.7 },
       );
-
-      if (sectionRef.current) {
-        const pin = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=75%",
-            scrub: true,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-
-        pin.to(
-          contentRef.current,
-          {
-            opacity: 0.2,
-            scale: 0.94,
-            y: -90,
-            duration: 1,
-            ease: "none",
-          },
-          0,
-        );
-
-        const decors = decorRef.current?.querySelectorAll<HTMLElement>("[data-speed]");
-        decors?.forEach((el) => {
-          const speed = Number(el.dataset.speed ?? "1");
-          pin.to(el, { y: -170 * speed, duration: 1, ease: "none" }, 0);
-        });
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -113,60 +82,31 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex min-h-[100svh] flex-col items-center overflow-hidden bg-canvas"
+      className="relative flex min-h-svh flex-col items-center overflow-hidden bg-canvas"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-32 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-accent-soft blur-3xl sm:h-[34rem] sm:w-[34rem]" />
-        <div className="absolute bottom-[-20%] left-[-12%] h-[24rem] w-[24rem] rounded-full bg-accent/10 blur-3xl sm:h-[30rem] sm:w-[30rem]" />
+        <Image
+          src="/images/hero-banner.jpeg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-25"
+          loading="eager"
+        />
+        <div className="absolute -top-32 right-[-10%] h-112 w-md rounded-full bg-accent-soft blur-3xl sm:h-136 sm:w-136" />
+        <div className="absolute bottom-[-20%] left-[-12%] h-96 w-[24rem] rounded-full bg-accent/10 blur-3xl sm:h-120 sm:w-120" />
       </div>
 
-      <div
-        ref={decorRef}
-        className="pointer-events-none absolute inset-0 hidden lg:block"
-        aria-hidden="true"
-      >
-        <div data-speed="1.4" className="absolute left-[6%] top-[20%] -rotate-12">
-          <Float duration={6} delay={0.4}>
-            <div className="rounded-2xl border border-line bg-white p-5 shadow-card-lg">
-              <div className="grid h-16 w-16 place-items-center rounded-xl bg-accent-soft">
-                <SparkIcon className="h-8 w-8 text-accent" />
-              </div>
-            </div>
-          </Float>
-        </div>
-        <div data-speed="0.8" className="absolute right-[8%] top-[16%] rotate-6">
-          <Float duration={7} delay={1.2}>
-            <div className="rounded-2xl border border-line bg-white p-4 shadow-card-lg">
-              <div className="flex items-center gap-3 rounded-xl bg-surface-tint px-4 py-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-accent text-white">
-                  <StarIcon className="h-5 w-5" />
-                </div>
-                <div className="text-sm">
-                  <p className="font-bold text-ink">4.9/5</p>
-                  <p className="text-muted">2,400+ reviews</p>
-                </div>
-              </div>
-            </div>
-          </Float>
-        </div>
-        <div data-speed="1.9" className="absolute bottom-[24%] right-[22%] -rotate-6">
-          <Float duration={5.5} delay={0}>
-            <div className="rounded-full border border-line bg-white px-5 py-3 text-sm font-semibold text-accent shadow-card-lg">
-              Free design proof
-            </div>
-          </Float>
-        </div>
-        <div data-speed="1.1" className="absolute bottom-[18%] left-[16%] rotate-3">
-          <Float duration={6.5} delay={0.8}>
-            <div className="rounded-full border border-line bg-white px-5 py-3 text-sm font-semibold text-accent shadow-card-lg">
-              No minimums
-            </div>
+      <div className="absolute inset-0 hidden lg:block">
+        <div className="pointer-events-auto absolute right-[6%] top-1/2 -translate-y-1/2 rotate-3">
+          <Float duration={6} delay={0.3}>
+            <PatchSlider />
           </Float>
         </div>
       </div>
 
       <div className="relative z-10 my-auto mx-auto w-full max-w-7xl px-5 py-24 sm:px-8 sm:py-28 lg:py-32">
-        <div ref={contentRef}>
+        <div>
           <div className="hero-fade inline-flex max-w-full items-center gap-2 rounded-full border border-accent/20 bg-white/70 px-4 py-2 text-xs font-medium text-accent shadow-card backdrop-blur sm:text-sm">
             <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
             <span className="truncate">Custom patch manufacturing · Embroidered · Woven · PVC</span>
@@ -192,7 +132,7 @@ export default function Hero() {
             <p>
               patchifycreations turns your artwork into production-ready embroidered,
               woven, and PVC patches for brands, teams, and collectors. Upload a design
-              and get a free digital proof within 24 hours.
+              and get a free digital proof within 3–4 hours.
             </p>
           </div>
 
@@ -214,10 +154,10 @@ export default function Hero() {
 
           <dl className="hero-fade mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-14 sm:flex sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-6">
             {[
-              { value: "24hr", label: "Free digital proof" },
-              { value: "0", label: "Minimum order size" },
-              { value: "8–12", label: "Day turnaround" },
-              { value: "500k+", label: "Patches delivered" },
+              { value: "3–4hr", label: "Free digital proof" },
+              { value: "15", label: "Minimum order size" },
+              { value: "7", label: "Business day turnaround" },
+              { value: "100k+", label: "Patches delivered" },
             ].map((stat) => (
               <div key={stat.label}>
                 <dt className="sr-only">{stat.label}</dt>
@@ -231,7 +171,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-[5.5rem] left-1/2 z-10 hidden -translate-x-1/2 md:flex">
+      <div className="pointer-events-none absolute bottom-22 left-1/2 z-10 hidden -translate-x-1/2 md:flex">
         <div className="flex flex-col items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted">
           <span>Scroll</span>
           <span className="h-10 w-px animate-pulse bg-accent/60" aria-hidden="true" />

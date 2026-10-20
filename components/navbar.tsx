@@ -1,14 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { CloseIcon, MenuIcon, PatchIcon } from "./icons";
+import { CloseIcon, MenuIcon } from "./icons";
 import { useAnchorNavigation } from "./navigation";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Vector Art", href: "/vector-art" },
+  { label: "Digitizing", href: "/digitizing" },
   { label: "About Us", href: "/about" },
 ];
 
@@ -82,22 +85,24 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:h-[4.5rem]"
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:h-18"
       >
         <Link
           href="/"
-          className="group flex items-center gap-2.5 text-ink"
+          className="group flex items-center"
           onClick={(e) => {
             e.preventDefault();
             handleNavigate("/");
           }}
         >
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-white shadow-card transition-transform duration-300 group-hover:-rotate-6">
-            <PatchIcon className="h-5 w-5" />
-          </span>
-          <span className="text-base font-bold tracking-tight sm:text-lg">
-            patchify<span className="text-accent">creations</span>
-          </span>
+          <Image
+            src="/PatchifyCreationsLogoNavbar.png"
+            alt="patchifycreations logo"
+            width={0}
+            height={0}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -166,21 +171,24 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
             >
-              <div className="flex items-center justify-between border-b border-line px-6 py-5">
-                <span className="flex min-w-0 items-center gap-2 font-bold text-ink">
-                  <PatchIcon className="h-5 w-5 shrink-0 text-accent" />
-                  <span className="truncate">patchifycreations</span>
-                </span>
-                <button
-                  ref={closeButtonRef}
-                  type="button"
-                  aria-label="Close navigation menu"
-                  onClick={() => setOpen(false)}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-accent-soft"
-                >
-                  <CloseIcon className="h-5 w-5" />
-                </button>
-              </div>
+<div className="flex min-w-0 items-center justify-between gap-4 border-b border-line px-6 py-5">
+  <Image
+    src="/PatchifyCreationsLogoNavbar.png"
+    alt="patchifycreations logo"
+    width={0}
+    height={0}
+    className="h-8 w-auto"
+  />
+  <button
+    ref={closeButtonRef}
+    type="button"
+    aria-label="Close navigation menu"
+    onClick={() => setOpen(false)}
+    className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-accent-soft"
+  >
+    <CloseIcon className="h-5 w-5" />
+  </button>
+</div>
 
               <div className="flex flex-col gap-1 overflow-y-auto px-6 py-6">
                 {NAV_LINKS.map((link, i) => (
@@ -213,7 +221,7 @@ export default function Navbar() {
                   Start Your Design
                 </Link>
                 <p className="mt-4 text-center text-sm text-muted">
-                  Free design proofs · No minimums
+                  Free design proofs · 15-piece minimum
                 </p>
               </div>
             </motion.div>

@@ -8,19 +8,19 @@ const FEATURES = [
     icon: BrushIcon,
     title: "Free design proof",
     description:
-      "Our designers refine your artwork for perfect stitching and send a free digital mockup within 24 hours — no charge, no obligation.",
+      "Our designers refine your artwork for perfect stitching and send a free digital mockup within 3–4 hours — no charge, no obligation.",
   },
   {
     icon: LayersIcon,
-    title: "No minimum orders",
+    title: "15-piece minimum",
     description:
-      "Order a single sample or 10,000 units. We scale to your size with per-unit pricing that gets better as you grow.",
+      "Orders start at just 15 pieces. We scale to your size with per-unit pricing that gets better as you grow.",
   },
   {
     icon: TruckIcon,
-    title: "8–12 day turnaround",
+    title: "7-day turnaround",
     description:
-      "Streamlined production and express options get quality patches to your door in days, not months.",
+      "Streamlined production gets quality patches to your door in 7 business days, with express options when deadlines are tight.",
   },
   {
     icon: ShieldIcon,

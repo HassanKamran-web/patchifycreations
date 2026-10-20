@@ -68,18 +68,19 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-              Custom patch manufacturing for brands, military, sports teams, and
-              collectors. Free proofs, no minimums, patches built to last.
+              Custom patch manufacturing for brands, teams, and collectors. Free proofs,
+              15-piece minimum, patches built to last.
             </p>
             <div className="mt-6 flex gap-3">
               {[
-                { icon: InstagramIcon, label: "Instagram" },
-                { icon: FacebookIcon, label: "Facebook" },
-                { icon: TwitterIcon, label: "Twitter / X" },
+                { icon: InstagramIcon, label: "Instagram", link: "https://www.instagram.com/patchifycreations/" },
+                { icon: FacebookIcon, label: "Facebook", link: "https://www.facebook.com/share/1BjRQvNN78/" },
+                // { icon: TwitterIcon, label: "Twitter / X" },
               ].map((social) => (
                 <Link
+                target="_blank"
                   key={social.label}
-                  href="/"
+                  href={social.link || "/"}
                   aria-label={social.label}
                   className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white text-muted transition-colors hover:border-accent hover:bg-accent hover:text-white"
                 >
@@ -117,25 +118,22 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-muted">
               <li className="flex items-start gap-3">
                 <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <a href="mailto:hello@patchifycreations.com" className="transition-colors hover:text-accent">
-                  hello@patchifycreations.com
+                <a href="mailto:info@patchifycreations.com" className="transition-colors hover:text-accent">
+                  info@patchifycreations.com
                 </a>
               </li>
-              <li className="flex items-start gap-3">
+              {/* <li className="flex items-start gap-3">
                 <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a href="tel:+15550142400" className="transition-colors hover:text-accent">
                   +1 (555) 014-2400
                 </a>
-              </li>
+              </li> */}
               <li className="flex items-start gap-3">
                 <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span>Manchester, UK · Shipping worldwide</span>
+                <span>633 W 5th St, Los Angeles, CA 90071</span>
               </li>
             </ul>
-            <p className="mt-6 rounded-2xl border border-line bg-white p-4 text-sm text-muted">
-              <span className="font-semibold text-ink">Hours:</span> Mon–Fri, 9am–6pm
-              GMT · Live chat on this site
-            </p>
+          
           </div>
         </div>
 

@@ -1,15 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AnimatePresence, MotionConfig } from "framer-motion";
-import { CATEGORIES, PATCHES, type Patch, type PatchCategory } from "./data";
+import { MotionConfig } from "framer-motion";
+import { CATEGORIES, PATCHES, type PatchCategory } from "./data";
 import Filter from "./filter";
 import PatchGrid from "./patch-grid";
-import Lightbox from "./lightbox";
 
 export default function Gallery() {
   const [category, setCategory] = useState<"All" | PatchCategory>("All");
-  const [selected, setSelected] = useState<Patch | null>(null);
 
   const filtered = useMemo(
     () =>
@@ -30,20 +28,6 @@ export default function Gallery() {
     return result;
   }, []);
 
-  const selectedIndex = selected
-    ? filtered.findIndex((patch) => patch.id === selected.id)
-    : -1;
-
-  const handlePrev = () => {
-    if (selectedIndex <= 0) return;
-    setSelected(filtered[selectedIndex - 1]);
-  };
-
-  const handleNext = () => {
-    if (selectedIndex < 0 || selectedIndex >= filtered.length - 1) return;
-    setSelected(filtered[selectedIndex + 1]);
-  };
-
   return (
     <MotionConfig reducedMotion="user">
       <section id="gallery" className="scroll-mt-24 bg-surface-tint py-20 sm:py-28">
@@ -58,24 +42,10 @@ export default function Gallery() {
           </div>
 
           <div className="mt-10">
-            <PatchGrid category={category} patches={filtered} onSelect={setSelected} />
+            <PatchGrid category={category} patches={filtered} />
           </div>
         </div>
       </section>
-
-      <AnimatePresence>
-        {selected ? (
-          <Lightbox
-            key={selected.id}
-            patch={selected}
-            onClose={() => setSelected(null)}
-            onPrev={handlePrev}
-            onNext={handleNext}
-            hasPrev={selectedIndex > 0}
-            hasNext={selectedIndex < filtered.length - 1}
-          />
-        ) : null}
-      </AnimatePresence>
     </MotionConfig>
   );
 }

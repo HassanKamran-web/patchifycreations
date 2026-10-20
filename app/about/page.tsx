@@ -17,7 +17,7 @@ export default function AboutPage() {
       <AboutHero />
       <Timeline />
       <WhyChoose />
-      <Team />
+      {/* <Team /> */}
       <AboutCta />
     </main>
   );

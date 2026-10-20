@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./reveal";
 import SectionHeading from "./section-heading";
 import TiltCard from "./tilt-card";
@@ -12,6 +13,7 @@ const CATEGORIES = [
     description:
       "Classic raised-stitch patches with rich color and a premium textile feel. Perfect for apparel and uniforms.",
     tag: "Most popular",
+    image: "/images/embroidery/patch-01.png",
   },
   {
     icon: WovenIcon,
@@ -19,6 +21,7 @@ const CATEGORIES = [
     description:
       "Fine detail and sharp edges at small sizes. Ideal for intricate logos, text, and complex artwork.",
     tag: "Fine detail",
+    image: "/images/pvc/patch-04.png",
   },
   {
     icon: LayersIcon,
@@ -26,6 +29,7 @@ const CATEGORIES = [
     description:
       "Durable, weatherproof 3D rubber patches with bold dimension. Built for outdoor and tactical gear.",
     tag: "Weatherproof",
+    image: "/images/pvc/patch-08.png",
   },
   {
     icon: ShieldIcon,
@@ -33,20 +37,23 @@ const CATEGORIES = [
     description:
       "Add a hook-and-loop backing to any patch for quick attachment to bags, vests, and tactical kits.",
     tag: "Easy attach",
+    image: "/images/embroidery/patch-10.png",
   },
   {
     icon: ScissorsIcon,
     title: "Custom Labels & Badges",
     description:
       "Garment labels, woven tags, and award badges produced in small batches without brand compromise.",
-    tag: "No minimums",
+    tag: "15-piece minimum",
+    image: "/images/chenille/patch-18.png",
   },
   {
     icon: ShieldIcon,
-    title: "Military & Tactical",
+    title: "Leather Patches",
     description:
-      "MIL-SPEC quality patches with heavy-duty construction for teams, units, and first responders.",
-    tag: "MIL-SPEC",
+      "Premium top-grain leather with laser-etched and hand-finished edges for a vintage, worn-in look.",
+    tag: "Premium",
+    image: "/images/leather/patch-02.png",
   },
 ];
 
@@ -67,7 +74,16 @@ export default function Categories() {
             <Reveal key={category.title} delay={(i % 3) * 0.08}>
               <TiltCard className="rounded-card">
                 <article className="flex h-full flex-col rounded-card border border-line bg-surface-tint p-6 transition-shadow duration-300 group-hover:shadow-card-lg sm:p-7">
-                  <div className="flex items-center justify-between">
+                  <div className="relative h-40 overflow-hidden rounded-2xl  sm:h-44">
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-5 flex items-center justify-between">
                     <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-accent shadow-card transition-transform duration-300 group-hover:-rotate-6">
                       <category.icon className="h-7 w-7" />
                     </span>
@@ -75,7 +91,7 @@ export default function Categories() {
                       {category.tag}
                     </span>
                   </div>
-                  <h3 className="mt-6 text-xl font-bold tracking-tight text-ink">
+                  <h3 className="mt-5 text-xl font-bold tracking-tight text-ink">
                     {category.title}
                   </h3>
                   <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">

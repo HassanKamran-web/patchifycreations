@@ -8,7 +8,7 @@ export default function Cta() {
     <section id="cta" className="scroll-mt-24 bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-accent px-6 py-16 text-center shadow-card-lg sm:px-12 sm:py-20">
+          <div className="relative overflow-hidden rounded-4xl bg-accent px-6 py-16 text-center shadow-card-lg sm:px-12 sm:py-20">
             <div
               className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
               aria-hidden="true"
@@ -26,11 +26,11 @@ export default function Cta() {
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
                 Send us your artwork today and receive a free stitch-ready mockup within
-                24 hours. No commitment, no design fees, no minimums.
+                3–4 hours. No commitment, no design fees — just a 15-piece minimum.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
-                  href="mailto:hello@patchifycreations.com"
+                  href="mailto:info@patchifycreations.com"
                   className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-accent shadow-card-lg transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"
                 >
                   Get your free proof
@@ -45,7 +45,7 @@ export default function Cta() {
               </div>
               <p className="mt-8 flex items-center justify-center gap-2 text-sm text-white/70">
                 <MailIcon className="h-4 w-4" />
-                hello@patchifycreations.com · Replies within one business day
+                info@patchifycreations.com · Replies within one business day
               </p>
             </div>
           </div>

@@ -1,22 +1,22 @@
 "use client";
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { EmbroideredIcon, SparkIcon, StarIcon, WovenIcon } from "../icons";
+import { SparkIcon, StarIcon } from "../icons";
 import { prefersReducedMotion } from "../smooth-scroll";
-import Counter from "./counter";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HEADLINE = ["Stitched with", "purpose, worn", "with pride."];
 
 const STATS = [
-  { to: 10, suffix: "+", label: "Years in production" },
-  { to: 1800, suffix: "+", label: "Brands served" },
-  { to: 38, suffix: "", label: "Countries shipped" },
-  { to: 500, suffix: "k+", label: "Patches manufactured" },
+  { value: "3–4hr", label: "Free digital proof" },
+  { value: "15", label: "Minimum order size" },
+  { value: "7", label: "Business day turnaround" },
+  { value: "100k+", label: "Patches delivered" },
 ];
 
 function Float({
@@ -89,8 +89,16 @@ export default function AboutHero() {
       className="relative overflow-hidden bg-canvas"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-24 right-[-8%] h-[30rem] w-[30rem] rounded-full bg-accent-soft blur-3xl" />
-        <div className="absolute bottom-[-16%] left-[-10%] h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-3xl" />
+        <Image
+          src="/images/hero-banner.jpeg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-25"
+          loading="eager"
+        />
+        <div className="absolute -top-24 right-[-8%] h-120 w-120 rounded-full bg-accent-soft blur-3xl" />
+        <div className="absolute bottom-[-16%] left-[-10%] h-104 w-104 rounded-full bg-accent/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-5 pb-20 pt-32 sm:px-8 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:pb-28 lg:pt-44">
@@ -136,7 +144,7 @@ export default function AboutHero() {
               <div key={stat.label}>
                 <dt className="sr-only">{stat.label}</dt>
                 <dd className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  <Counter to={stat.to} suffix={stat.suffix} />
+                  {stat.value}
                 </dd>
                 <dd className="mt-1.5 text-xs text-muted sm:text-sm">{stat.label}</dd>
               </div>
@@ -145,11 +153,18 @@ export default function AboutHero() {
         </div>
 
         <div className="about-parallax relative hidden lg:block" aria-hidden="true">
-          <div className="relative mx-auto h-[32rem] w-[30rem] max-w-full">
+          <div className="relative mx-auto h-128 w-120 max-w-full">
             <Float duration={6.5} delay={0.3}>
-              <div className="absolute left-0 top-10 w-64 rotate-[-6deg] rounded-3xl border border-line bg-white p-6 shadow-card-lg">
-                <div className="grid aspect-square place-items-center rounded-2xl bg-surface-tint">
-                  <EmbroideredIcon className="h-16 w-16 text-accent" />
+              <div className="absolute left-0 top-10 w-64 -rotate-6 rounded-3xl border border-line bg-white p-6 shadow-card-lg">
+                <div className="relative aspect-square overflow-hidden rounded-2xl bg-canvas">
+                  <Image
+                    src="/images/embroidery/patch-01.png"
+                    alt=""
+                    fill
+                    sizes="256px"
+                    className="object-contain p-3"
+                    loading="lazy"
+                  />
                 </div>
                 <p className="mt-4 text-sm font-bold text-ink">Embroidered collection</p>
                 <p className="text-xs text-muted">Thread by thread, by hand in Manchester</p>
@@ -158,8 +173,15 @@ export default function AboutHero() {
 
             <Float duration={7.5} delay={1}>
               <div className="absolute right-0 top-0 w-56 rotate-[5deg] rounded-3xl border border-line bg-white p-5 shadow-card-lg">
-                <div className="grid aspect-square place-items-center rounded-2xl bg-accent text-white">
-                  <WovenIcon className="h-12 w-12" />
+                <div className="relative aspect-square overflow-hidden rounded-2xl bg-canvas">
+                  <Image
+                    src="/images/woven/patch-woven01.jpeg"
+                    alt=""
+                    fill
+                    sizes="224px"
+                    className="object-contain p-3"
+                    loading="lazy"
+                  />
                 </div>
                 <p className="mt-3 text-sm font-bold text-ink">Woven precision</p>
               </div>

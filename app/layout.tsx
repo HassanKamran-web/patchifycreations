@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "patchifycreations — Custom Patch Manufacturing",
   description:
-    "Custom embroidered, woven, PVC and velcro patches for apparel brands, military and sports teams. Free design proofs, no minimums, fast turnaround.",
+    "Custom embroidered, woven, PVC and chenille patches for apparel brands, teams and collectors. Free design proofs, 15-piece minimum, fast turnaround.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
