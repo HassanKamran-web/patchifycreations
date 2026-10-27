@@ -101,7 +101,7 @@ export default function Navbar() {
             alt="patchifycreations logo"
             width={300}
             height={100}
-            className="h-9 w-auto object-contain "
+            className="h-16 w-auto object-contain "
             sizes="100vw"
             priority
           />
@@ -181,7 +181,7 @@ export default function Navbar() {
                   alt="patchifycreations logo"
                   width={300}
                   height={100}
-                  className="h-8 w-auto object-contain"
+                  className="h-12 w-auto object-contain"
                   sizes="100vw"
                 />
 
