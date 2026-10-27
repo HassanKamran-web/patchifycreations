@@ -77,11 +77,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-line bg-white/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled
+        ? "border-b border-line bg-white/85 backdrop-blur-md"
+        : "border-b border-transparent bg-transparent"
+        }`}
     >
       <nav
         aria-label="Primary"
@@ -95,14 +94,18 @@ export default function Navbar() {
             handleNavigate("/");
           }}
         >
+     
+
           <Image
             src="/PatchifyCreationsLogoNavbar.png"
             alt="patchifycreations logo"
-            width={0}
-            height={0}
-            className="h-9 w-auto"
+            width={300}
+            height={100}
+            className="h-9 w-auto object-contain "
+            sizes="100vw"
             priority
           />
+
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -171,24 +174,27 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
             >
-<div className="flex min-w-0 items-center justify-between gap-4 border-b border-line px-6 py-5">
-  <Image
-    src="/PatchifyCreationsLogoNavbar.png"
-    alt="patchifycreations logo"
-    width={0}
-    height={0}
-    className="h-8 w-auto"
-  />
-  <button
-    ref={closeButtonRef}
-    type="button"
-    aria-label="Close navigation menu"
-    onClick={() => setOpen(false)}
-    className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-accent-soft"
-  >
-    <CloseIcon className="h-5 w-5" />
-  </button>
-</div>
+              <div className="flex min-w-0 items-center justify-between gap-4 border-b border-line  px-6 py-5">
+            
+                <Image
+                  src="/PatchifyCreationsLogoNavbar.png"
+                  alt="patchifycreations logo"
+                  width={300}
+                  height={100}
+                  className="h-8 w-auto object-contain"
+                  sizes="100vw"
+                />
+
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  aria-label="Close navigation menu"
+                  onClick={() => setOpen(false)}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-accent-soft"
+                >
+                  <CloseIcon className="h-5 w-5" />
+                </button>
+              </div>
 
               <div className="flex flex-col gap-1 overflow-y-auto px-6 py-6">
                 {NAV_LINKS.map((link, i) => (
