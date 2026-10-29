@@ -13,6 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "patchifycreations — Custom Patch Manufacturing",
+    verification: {
+    google: "MQg0UNsLFlMX9p-P64CB-uYiYalI1Bpf7cZCgyHVTZk",
+  },
   description:
     "Custom embroidered, woven, PVC and chenille patches for apparel brands, teams and collectors. Free design proofs, 15-piece minimum, fast turnaround.",
 };
