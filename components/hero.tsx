@@ -87,7 +87,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <Image
           src="/images/hero-banner.jpeg"
-          alt=""
+         alt="Custom Patch Manufacturing Workshop - Patchify Creations"
           fill
           sizes="100vw"
           className="object-cover opacity-25"

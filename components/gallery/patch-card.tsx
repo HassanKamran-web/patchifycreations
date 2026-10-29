@@ -35,7 +35,7 @@ export default function PatchCard({ patch }: PatchCardProps) {
           <Image
             ref={imgRef}
             src={patch.image}
-            alt={patch.name}
+            alt={`Custom ${patch.name || 'embroidered'} patch by Patchify Creations`}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
             className={`object-contain transition-opacity duration-500 ${

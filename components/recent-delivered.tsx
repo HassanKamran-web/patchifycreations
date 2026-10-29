@@ -89,7 +89,7 @@ function PatchCard({ src }: { src: string }) {
     <div className="rounded-2xl border border-line bg-white p-2 shadow-card transition-transform duration-300 ease-out hover:scale-110">
       <Image
         src={src}
-        alt=""
+       alt="Custom Patch Manufacturing Workshop - Patchify Creations"
         width={176}
         height={176}
         className="h-40 w-40 rounded-xl object-cover sm:h-44 sm:w-44"

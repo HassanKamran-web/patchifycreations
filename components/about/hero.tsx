@@ -91,7 +91,7 @@ export default function AboutHero() {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <Image
           src="/images/hero-banner.jpeg"
-          alt=""
+          alt="Custom Patch Manufacturing Workshop - Patchify Creations"
           fill
           sizes="100vw"
           className="object-cover opacity-25"
@@ -159,7 +159,7 @@ export default function AboutHero() {
                 <div className="relative aspect-square overflow-hidden rounded-2xl bg-canvas">
                   <Image
                     src="/images/embroidery/patch-01.png"
-                    alt=""
+                   alt="Custom Embroidered Brand Patch Design"
                     fill
                     sizes="256px"
                     className="object-contain p-3"
@@ -176,7 +176,7 @@ export default function AboutHero() {
                 <div className="relative aspect-square overflow-hidden rounded-2xl bg-canvas">
                   <Image
                     src="/images/woven/patch-woven01.jpeg"
-                    alt=""
+                    alt="High Detail Custom Woven Logo Badge"
                     fill
                     sizes="224px"
                     className="object-contain p-3"

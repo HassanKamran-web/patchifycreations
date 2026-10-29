@@ -39,7 +39,7 @@ export default function PatchSlider({
           <Image
             key={src}
             src={src}
-            alt=""
+            alt="Custom embroidered motorcycle club patch by Patchify Creations"
             fill
             sizes="(min-width: 1280px) 384px, (min-width: 640px) 320px, 288px"
             className={`object-contain transition-opacity duration-700 ease-in-out ${

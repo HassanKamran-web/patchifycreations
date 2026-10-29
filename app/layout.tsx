@@ -12,12 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "patchifycreations — Custom Patch Manufacturing",
-    verification: {
-    google: "MQg0UNsLFlMX9p-P64CB-uYiYalI1Bpf7cZCgyHVTZk",
+  title: "Custom Patch Manufacturing | Embroidered, Woven & PVC Patches",
+  description: "Patchify Creations turns your artwork into high-quality custom embroidered, woven, and PVC patches. 15-piece minimum, 7-day turnaround, and free digital proofs.",
+  verification: {
+  google: "MQg0UNsLFlMX9p-P64CB-uYiYalI1Bpf7cZCgyHVTZk",
   },
-  description:
-    "Custom embroidered, woven, PVC and chenille patches for apparel brands, teams and collectors. Free design proofs, 15-piece minimum, fast turnaround.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
